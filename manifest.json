@@ -1,0 +1,43 @@
+{
+    "manifest_version": 2,
+    "name": "github-smoothly",
+    "background": {
+        "scripts": ["scripts/background.js"]
+    },
+    "content_scripts": [{
+        "js": ["scripts/content.js"],
+        "matches": ["*://github.com/*", "*://www.github.com/*","*://*.github.com/*"],
+        "run_at": "document_end"
+    }],
+    "description": "github smoothly tool!",
+    "icons": {
+        "128": "images/icons/icon_128.png",
+        "48": "images/icons/icon_48.png"
+    },
+    "options_page": "options.html",
+    "page_action": {
+        "default_icon": "images/icons/icon_48.png",
+        "default_popup": "popup.html",
+        "default_title": "github-smoothly!"
+    },
+    "permissions": [ "proxy", "tabs", "browsingData", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*" ],
+    "plugins": [{
+          "path": "./plugins/npnpfs-xp.dll"
+        }, {
+          "path": "./plugins/npnpfs-win7.dll"
+        }, {
+          "path": "./plugins/npnpfs.plugin"
+        }, {
+          "path": "./plugins/npnpfs-64.so"
+        }, {
+          "path": "./plugins/npnpfs-32.so"
+    }],
+    "requirements": {
+      "plugins": {
+         "npapi": false
+      }
+    },
+    "update_url": "http://clients2.google.com/service/update2/crx",
+    "version": "1.0.0",
+    "web_accessible_resources": ["styles/*", "scripts/*"]
+}
